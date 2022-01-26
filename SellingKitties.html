@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>
+        Clicker Game
+    </title>
+
+</head>
+
+<body>
+    <h2>Welcome to Nhi Thi Kitten clicker!</h2>
+    <h4>Sell Those Kitties!!!</h4>
+
+    <p>Score: <spand id="score">0</spand>
+    </p>
+
+    <img src="images/cat.jpeg" height="256px" width="256" onclick="addToScore(1)">
+    <button  onclick="buyKitty()">Kitties [<span id="kittycost">10</span>]-- <span id="kitties">0</span> </button>
+    <script>
+        var score = 0;
+        var kittyCost = 10;
+        var kitties = 0;
+
+        function buyKitty() {
+            if (score >= kittyCost) {
+                score = score - kittyCost;
+                kitties = kitties + 1;
+                
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("kitties").innerHTML = kitties;
+                document.getElementById("kittycost").innerHTML = kittyCost;
+
+            
+            }
+        }
+       setInterval(function() {
+            score = score + kitties;
+            document.getElementById("score").innerHTML = score;
+           
+       }, 1000); //1000ms = 1sec
+
+        // console.log(score)
+        // console.log("RAINT!")
+        function addToScore(amount) {
+            score = score + amount;
+            document.getElementById("score").innerHTML = score;
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>
