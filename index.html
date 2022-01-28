@@ -11,10 +11,22 @@
         .sectionLeft {
             color:hsl(350, 57%, 43%);
         }
-        .button { 
-            background-color: hsl(350, 57%, 43%);
-            
+        .scoreContainer {
+            /* margin: 0 auto; */
+            border: solid red 1px;
+            padding: 0;
+            width: 100px;
+            background-color: aquamarine;
         }
+        button {
+            background-color: pink;
+        }
+        img.kitty:hover {
+            border: solid red 1px;
+        }
+            
+
+        
     </style>
 </head>
 
@@ -35,16 +47,16 @@
             
             <br>
             <div class="kittiesContainer">
-            <img src="https://00nhi00.github.io/Kitty-Clicker-Game/cat.jpeg" height="256px" width="256" onclick="addToScore(1)">
+            <img class="kitty" src="images/cat.jpeg" height="256px" width="256" onclick="addToScore(1)">
             </div>
             
         </center>
         
     </div>
     <br>
-    <div class="button">
+    <div class="buttonContainer">
         <center>
-            <button  onclick="buyKitty()">Kitties [<span id="kittycost">10</span>]-- <span id="kitties">0</span> </button>
+            <button onclick="buyKitty()">Kitties [<span id="kittycost">Scores: 10</span>]-- <span id="kitties">0</span> </button>
         </center>
     </div>
     
@@ -65,7 +77,16 @@
                 document.getElementById("kittycost").innerHTML = kittyCost;
 
             
+            } else {
+                console.log('raint')
             }
+            if (kitties === 5) {
+                alert('YOU HAVE FIVE!! RAINT!!!');
+            }
+            if (kitties>= 10) {
+                alert("STOP!! TOO MANY KITTIES AlREADY!");
+            }
+
         }
         setInterval(function() {
             score = score + kitties;
