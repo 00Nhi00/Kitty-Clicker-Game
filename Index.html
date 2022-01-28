@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>
+        Clicker Game
+    </title>
+    <style>
+        .intro {
+            color:rgb(213, 99, 74);
+        }
+        .sectionLeft {
+            color:hsl(350, 57%, 43%);
+        }
+        .scoreContainer {
+            /* margin: 0 auto; */
+            border: solid red 1px;
+            padding: 0;
+            width: 100px;
+            background-color: aquamarine;
+        }
+        button {
+            background-color: pink;
+        }
+        img.kitty:hover {
+            border: solid red 1px;
+        }
+            
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="intro">
+        <center>
+            <h2>Welcome to Nhi Thi Kitten clicker!</h2>
+            <h4>Sell Those Kitties!!!</h4>
+        </center>
+        
+    </div>
+    
+    <div class="sectionLeft">
+        <center>
+            <div class="scoreContainer">
+            <p>Score: <spand id="score">0</spand></p>
+            </div>
+            
+            <br>
+            <div class="kittiesContainer">
+            <img class="kitty" src="images/cat.jpeg" height="256px" width="256" onclick="addToScore(1)">
+            </div>
+            
+        </center>
+        
+    </div>
+    <br>
+    <div class="buttonContainer">
+        <center>
+            <button onclick="buyKitty()">Kitties [<span id="kittycost">Scores: 10</span>]-- <span id="kitties">0</span> </button>
+        </center>
+    </div>
+    
+    
+    <script>
+        var score = 0;
+        var kittyCost = 10;
+        var kitties = 0;
+
+        function buyKitty() {
+            if (score >= kittyCost) {
+                score = score - kittyCost;
+                kitties = kitties + 1;
+                
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("kitties").innerHTML = kitties;
+                document.getElementById("kittycost").innerHTML = kittyCost;
+
+            
+            } else {
+                console.log('raint')
+            }
+            if (kitties === 5) {
+                alert('YOU HAVE FIVE!! RAINT!!!');
+            }
+            if (kitties>= 10) {
+                alert("STOP!! TOO MANY KITTIES AlREADY!");
+            }
+
+        }
+        setInterval(function() {
+            score = score + kitties;
+            document.getElementById("score").innerHTML = score;
+           
+       }, 1000); //1000ms = 1sec
+
+        // console.log(score)
+        // console.log("RAINT!")
+        function addToScore(amount) {
+            score = score + amount;
+            document.getElementById("score").innerHTML = score;
+        }
+
+    </script>
+</body>
+
+</html>
